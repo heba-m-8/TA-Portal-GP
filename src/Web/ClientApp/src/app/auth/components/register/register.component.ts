@@ -16,7 +16,6 @@ export class RegisterComponent implements OnInit {
   userPassword = new FormControl('', [Validators.required, Validators.minLength(4),]);
 
   constructor( public router: Router, private authClient: AuthClient, private title: Title,private toastr: ToastrService ) {
-    this.title.setTitle('TA Managment | Signup');
   }
 
   ngOnInit(): void {}
