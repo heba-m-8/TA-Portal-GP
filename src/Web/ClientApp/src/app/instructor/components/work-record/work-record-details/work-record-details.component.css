@@ -1,0 +1,44 @@
+.full-width {
+    width: 100%;
+  }
+
+  ::ng-deep .remove-selected .mdc-list-item__primary-text{
+    color: #497b96;
+  }
+
+  table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+
+  .new-task{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .login-logo{
+    width: 17rem;
+    height: 5rem;
+    margin-top: 0.5rem;
+  }
+
+  .Line{
+    color: black;
+    margin-bottom: 1rem;
+    padding-inline-start: 1rem;
+  }
+
+  .workRecord-action{
+    gap: 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }

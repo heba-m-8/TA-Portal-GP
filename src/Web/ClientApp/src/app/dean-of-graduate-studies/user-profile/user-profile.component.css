@@ -1,0 +1,84 @@
+.profile{
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 13px 55px 33px 55px;
+    height: 42rem;
+    box-shadow: 0 2px 18px 1px rgba(49,53,72,.1);
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
+}
+
+.header{
+    width: 100%;
+    background: #497b96;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 1.2rem 1rem 1rem 1rem ;
+    height: 4rem;
+    box-shadow: 0 2px 18px 1px rgba(49,53,72,.1);
+    margin-bottom: 2rem;
+    color: #ececec;
+  }
+  .title{
+    margin-top: 0.3rem;
+    font-weight: bold;
+  }
+
+  .input-u{
+    width: 35rem;
+  }
+
+  .input-up{
+    width: 65rem;
+  }
+
+  :ng-deep .mdc-text-field--disabled.mdc-text-field--filled{
+    background-color: #d4d0d0 !important;
+  }
+
+  .text-co{
+    color:  gray;
+  }
+
+  .sub-profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .workRecord-action{
+    gap: 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+
+  .profile-p{
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 13px 55px 33px 55px;
+    height: 23rem;
+    box-shadow: 0 2px 18px 1px rgba(49,53,72,.1);
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap:0.5rem;
+}
+
+.error-m{
+  color: rgb(196, 27, 27);
+}
+
+.change{
+  color: #497b96;
+}

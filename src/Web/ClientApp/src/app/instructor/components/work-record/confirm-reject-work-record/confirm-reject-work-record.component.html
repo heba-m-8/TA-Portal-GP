@@ -1,0 +1,25 @@
+<h4 mat-dialog-title style="color: #497b96;">To proceed with the rejection, kindly explain why you are rejecting this work record.</h4>
+<mat-dialog-content class="mat-typography" >
+
+    <div class="new-task">
+        <mat-form-field class="example-full-width">
+            <mat-label>Description</mat-label>
+            <input   matInput  [(ngModel)]="note" >
+
+          </mat-form-field>
+    </div>
+
+
+</mat-dialog-content>
+
+
+<mat-dialog-actions style="justify-content: flex-end;">
+    <button mat-button mat-dialog-close 
+        style="background-color:#497b96; color: white; border-radius: 20px;height: 40px;width: 80px;">Close
+    </button>
+
+    <button mat-button mat-dialog-close  (click)="reject()" [disabled]="!note"
+    style="background-color:#497b96; color: white; border-radius: 20px;height: 40px;width: 80px;">Save
+</button>
+</mat-dialog-actions>
+

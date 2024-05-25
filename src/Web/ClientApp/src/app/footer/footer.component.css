@@ -1,0 +1,39 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+.footer-content{
+    padding: 25px 0;
+    text-align: center;
+    color: white;
+    background: #497b96;
+    font-size: small;
+    font-weight: bold;
+}
+ 
+.copyright {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+}
+
+a{
+    color: white;
+    text-decoration: underline;
+}
+
+.footer-links{
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    padding-inline-start: 1rem;
+    padding-inline-end: 2rem;
+    margin-top: 1rem;
+    font-size: small;
+}
+
+.pull-right{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}

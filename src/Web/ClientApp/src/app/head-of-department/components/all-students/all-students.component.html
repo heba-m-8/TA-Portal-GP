@@ -1,0 +1,66 @@
+<app-hod-nav-menu></app-hod-nav-menu>
+
+
+<div class="container mt-2 py-4">
+
+  <div class="header">
+    <span class="title"> Students </span>
+  </div>
+
+  <div class="body">
+
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+      </mat-form-field>
+      
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+      
+            <!-- universityId Column -->
+            <ng-container matColumnDef="universityId">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Student Number </th>
+              <td mat-cell *matCellDef="let row"> {{row.universityId}} </td>
+            </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="userName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let row"> {{row.userName}} </td>
+          </ng-container>
+
+          <!-- userEmail Column -->
+          <ng-container matColumnDef="userEmail">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+            <td mat-cell *matCellDef="let row"> {{row.userEmail}} </td>
+          </ng-container>
+
+          <!-- gpa Column -->
+          <ng-container matColumnDef="gpa">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> GPA </th>
+            <td mat-cell *matCellDef="let row"> {{row.gpa}} </td>
+          </ng-container>
+          <!-- scholarship Column -->
+          <ng-container matColumnDef="scholarship">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Scholarship Type </th>
+            <td mat-cell *matCellDef="let row">
+              <ng-container *ngIf="row.gpa >= 85"> Full </ng-container>
+              <ng-container *ngIf="row.gpa < 85"> Partial </ng-container>
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+          </tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+      </div>
+      
+  </div>
+      
+</div>

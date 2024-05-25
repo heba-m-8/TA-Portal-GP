@@ -1,0 +1,6 @@
+.full-width {
+    width: 100%;
+  }
+   ::ng-deep .remove-selected .mdc-list-item__primary-text{
+    color: #497b96;
+  }

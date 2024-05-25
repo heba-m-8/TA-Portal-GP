@@ -1,0 +1,28 @@
+
+<h4 mat-dialog-title style="color: #497b96;">To complete your task, please add the total hours</h4>
+<mat-dialog-content class="mat-typography" >
+
+    <div class="new-task">
+
+        <mat-form-field>
+            <mat-label>Total hours</mat-label>
+            <mat-select [(ngModel)]="totalHours" disableRipple>
+              <mat-option *ngFor="let item of numbers" [value]="item">{{ item }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+    </div>
+
+
+</mat-dialog-content>
+
+
+<mat-dialog-actions style="justify-content: flex-end;">
+    <button mat-button mat-dialog-close 
+        style="background-color:#497b96; color: white; border-radius: 20px;height: 40px;width: 80px;">Close
+    </button>
+
+    <button mat-button mat-dialog-close  (click)="updateTask()"
+    style="background-color:#497b96; color: white; border-radius: 20px;height: 40px;width: 80px;">Save
+</button>
+</mat-dialog-actions>

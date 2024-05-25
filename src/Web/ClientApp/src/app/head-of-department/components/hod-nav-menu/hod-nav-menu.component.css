@@ -1,0 +1,9 @@
+@import "../../../../assets/sharedComponent/nav-menu-design.css";
+
+.selectedItem{
+    border-bottom:  3px solid #497b96;
+    .nav-text{
+        color:#497b96 ;
+    }
+
+}

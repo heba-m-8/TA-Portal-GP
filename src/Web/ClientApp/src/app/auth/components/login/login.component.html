@@ -1,0 +1,53 @@
+<app-nav-menu></app-nav-menu>
+  <div class="limiter ">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <div class="login100-form validate-form">
+          <span class="login100-form-title p-b-48">
+            <img class="login-logo" src="../../../../assets/Images/Logo.png" alt="branding logo" loading="lazy">
+          </span>
+
+          <p class="line-on-side text-muted text-center mt-4 ">
+            <span class="logo-title"><b>Login</b></span>
+          </p>
+          <br>
+          <div class="wrap-input100 validate-input">
+            <input class="input100" type="text" name="universityId" placeholder="University ID" [formControl]="universityId">
+            <span class="" data-placeholder="universityId"></span>
+          </div>
+
+          <div class="wrap-input100 validate-input" data-validate="Enter password">
+            <span class="btn-show-pass">
+              <i class="zmdi zmdi-eye"></i>
+            </span>
+            <input class="input100" type="password" name="pass" placeholder="Password" [formControl]="userPassword" id="password-input">
+            <!-- <div class="form-control-position" onclick="togglePasswordVisibility()" style="cursor:pointer">
+              <i id="password-toggle-icon" style="font-size:24px" class="fa">&#xf06e;</i>
+            </div> -->
+            <span class="" data-placeholder="Password"></span>
+            
+          </div>
+          
+
+          <div class="container-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+              <button class="login100-form-btn" (click)="submit()">
+                <b>Login</b>
+              </button>
+            </div>
+          </div>
+
+          <div class="text-center p-t-115 mt-4">
+            <span class="txt1">
+              Don't have an account?
+            </span>
+
+            <a class="txt2" (click)=" goToReg()">
+              Sign Up
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

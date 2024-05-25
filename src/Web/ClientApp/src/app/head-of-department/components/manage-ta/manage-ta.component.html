@@ -1,0 +1,25 @@
+
+<h4 mat-dialog-title style="color: #497b96;">Manage TA</h4>
+<mat-dialog-content class="mat-typography" >
+
+    <mat-form-field class="full-width">
+        <mat-label>TAs</mat-label>
+        <mat-select [(value)]="selectedTA">
+          <mat-option class="remove-selected"> Remove the selected TA</mat-option>
+          <mat-option *ngFor="let ta of taList" [value]="ta.id">{{ ta.userName }}</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+
+</mat-dialog-content>
+
+
+<mat-dialog-actions style="justify-content: flex-end;">
+    <button mat-button mat-dialog-close 
+        style="background-color:#497b96; color: white; border-radius: 20px;height: 40px;width: 80px;">Cancel
+    </button>
+    <button class="add-btn" mat-button cdkFocusInitial (click)="manageTA()"
+         [mat-dialog-close]="true"
+        style="background-color: #497b96; color: white;border-radius: 20px;height: 40px;width: 80px;">Save
+    </button>
+</mat-dialog-actions>

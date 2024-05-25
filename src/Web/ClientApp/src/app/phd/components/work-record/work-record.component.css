@@ -1,0 +1,4 @@
+::ng-deep .mat-mdc-tab-label-container{
+  border-radius: 0.5rem !important;
+  background: rgb(184 189 193 / 54%) !important;
+  }

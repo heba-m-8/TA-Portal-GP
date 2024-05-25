@@ -1,0 +1,38 @@
+.nav{
+  padding: 5px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  color: gray;
+  background: #fafafa;
+}
+  
+.copyright { 
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+    width: 95%;
+    padding-inline-start: 1rem;
+}
+
+.nav-logo{
+  height: 3rem;
+}
+
+
+a{
+  color: gray;
+}
+
+.icon-color{
+  color: gray;
+  margin-right: 5px;
+}
+
+.profile-menu{
+  padding-inline-end: 1rem;
+
+}

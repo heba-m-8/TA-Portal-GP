@@ -1,0 +1,108 @@
+<app-finance-nav-menu></app-finance-nav-menu>
+<div class="container mt-2 py-4">
+
+  <h4 style="color: #497b96;padding-inline-start: 32rem;">
+    <span class="login100-form-title p-b-48">
+        <img class="login-logo" src="../../../../../assets/Images/Logo.png" alt="branding logo" loading="lazy">
+      </span>
+  </h4>
+  <div class="mat-typography" >
+  
+    <div class="user-details">
+       <div class="Line col-md-12 row">
+            <span class="name col-md-6">
+               <strong> Name :</strong> {{user.userName}}
+            </span>
+            <span class="phone col-md-6 ">
+                <strong> Email :</strong> {{user.userEmail}}
+            </span>
+       </div>
+  
+       <div class="Line col-md-12 row">
+        <span class="universityId col-md-6">
+            <strong> University ID :</strong> {{user.universityId}}
+        </span>
+        <span class="Department col-md-6">
+            <strong>Department :</strong> {{user.depName}}
+        </span>
+       
+       </div>
+  
+       <div class="Line col-md-12 row">
+        <span class="School col-md-6">
+            <strong>School :</strong> {{user.school}}
+        </span>
+        <span class="scholarshipType col-md-6">
+             <strong>Scholarship :</strong> {{user.GPA >= 85 ? 'Full' : 'Partial'}}
+        </span>
+  
+       </div>
+  
+       <div class="Line col-md-12 row">
+        <span class="date-from col-md-6">
+  
+             <strong>StartDate :</strong> {{items.startDate| date : 'dd MMM yyyy'}}
+        </span>
+        <span class="date-to col-md-6">
+             <strong>EndDate :</strong> {{items.endDate| date : 'dd MMM yyyy'}}
+        </span>
+       </div>
+  
+   </div>
+  
+  
+   <div class="tasks-list">
+      
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+  
+            <ng-container matColumnDef="courseRef">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Course Number </th>
+                <td mat-cell *matCellDef="let row"> {{row.courseRef}} </td>
+              </ng-container>
+  
+            <ng-container matColumnDef="sectionName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Section Name </th>
+                <td mat-cell *matCellDef="let row"> {{row.sectionName}} </td>
+              </ng-container>
+  
+            <ng-container matColumnDef="insructorName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Instructor Name </th>
+                <td mat-cell *matCellDef="let row"> {{row.insructorName}} </td>
+              </ng-container>
+  
+            <ng-container matColumnDef="description">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Task description </th>
+              <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+            </ng-container>
+  
+            <!-- status Column -->
+            <ng-container matColumnDef="totalHours">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Hours </th>
+              <td mat-cell *matCellDef="let row"> {{row.totalHours}} </td>
+            </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[3]" aria-label="Select page of users"></mat-paginator>
+      </div>
+   </div>
+  
+  </div>
+  
+
+  
+  
+    <div class="workRecord-action mt-2 py-4" *ngIf="!workRecordDetails.isApprovedByFinance">
+      <button mat-button mat-dialog-close  (click)="approve()"
+      style="background-color:#497b96; color: white; border-radius: 20px;height: 40px;width: 80px;">Approve
+    </button>
+    <button mat-button mat-dialog-close  (click)="reject()"
+        style="background-color:#497b96; color: white; border-radius: 20px;height: 40px;width: 80px;">Reject
+    </button>
+    </div>
+  
+  
+  </div>

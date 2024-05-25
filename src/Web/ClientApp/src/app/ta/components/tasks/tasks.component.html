@@ -1,0 +1,106 @@
+<app-ta-nav-menu></app-ta-nav-menu>
+
+
+
+
+
+
+
+
+<div class="container mt-2 py-4">
+
+  <div class="header">
+    <span class="title"> Tasks </span>
+  </div>
+  <mat-tab-group class="tab-st" (selectedIndexChange)="tabChanged($event)">
+    <ng-container *ngFor="let tab of asyncTabs | async; trackBy: trackByFn">
+      <mat-tab>
+        <ng-template mat-tab-label>{{ tab.label }}</ng-template>
+        {{ tab.content }}
+      </mat-tab>
+    </ng-container>
+  </mat-tab-group>
+  <br>
+  
+
+    <div class="body">
+
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+      </mat-form-field>
+      
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+      
+          
+          <ng-container matColumnDef="courseRef">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Course Number </th>
+            <td mat-cell *matCellDef="let row"> {{row.courseRef}} </td>
+          </ng-container>
+
+            <!-- sectionName Column -->
+            <ng-container matColumnDef="sectionName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Course Name </th>
+              <td mat-cell *matCellDef="let row"> {{row.sectionName}} </td>
+            </ng-container>
+               
+          
+          <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Description </th>
+            <td mat-cell *matCellDef="let row"> {{row.description}}</td>
+          </ng-container>
+
+             
+             <ng-container matColumnDef="assigner">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Assigner </th>
+                <td mat-cell *matCellDef="let row"> {{row.assigner}} </td>
+              </ng-container>
+
+              <ng-container *ngIf="!isCompletedTabSelected()">
+                <ng-container matColumnDef="status" >
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> {{selectedTabIndex != 1 ?'Status': 'Hours'}} </th>
+                  <td mat-cell *matCellDef="let row"> 
+                    <div class="form-check">
+                      <input class="form-check-input" (click)="updateTask(row.id)" [checked]="row.status" type="checkbox"  id="flexCheckDefault">
+                    </div>
+                  </td>
+                </ng-container>
+              </ng-container>
+              
+              
+
+              <ng-container  *ngIf="isCompletedTabSelected()">
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Hours </th>
+                  <td mat-cell *matCellDef="let row"> 
+                   {{row.totalHours}}
+                  </td>
+                </ng-container>
+              </ng-container>
+              
+              
+
+                 
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
+              <!-- Row shown when there is no matching data. -->
+              <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+              </tr>
+            </table>
+          
+            <mat-paginator [pageSizeOptions]="[5]" aria-label="Select page of users"></mat-paginator>
+          </div>
+    
+        </div>
+    
+       
+          
+    
+          
+    </div>
+    
+
+  

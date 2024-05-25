@@ -1,0 +1,89 @@
+<app-dean-nav-menu></app-dean-nav-menu>
+
+<div class="container mt-4 py-4 ">
+
+    <div class="header">
+        <span class="title"> User Profile </span>
+      </div>
+
+<div class="profile">
+
+    <div class="sub-profile">
+        <span>
+            <mat-form-field class="input-u">
+                <mat-label>User Name</mat-label>
+                <input matInput disabled="true" class="text-co"  [value]="user.userName">
+              </mat-form-field>
+        </span>
+    
+        <span>
+            <mat-form-field class="input-u">
+                <mat-label>University ID</mat-label>
+                <input matInput disabled="true"  class="text-co" [value]="user.universityId">
+              </mat-form-field>
+        </span>
+    </div>
+    
+
+    <div class="sub-profile">  
+        <span>
+            <mat-form-field class="input-u">
+                <mat-label>Email</mat-label>
+                <input matInput disabled="true"  class="text-co" [value]="user.userEmail">
+              </mat-form-field>
+        </span>
+    
+        <span>
+            <mat-form-field class="input-u">
+                <mat-label>Role</mat-label>
+                <input matInput disabled="true"  class="text-co" [value]="user.roleName">
+              </mat-form-field>
+        </span>    
+    </div>
+    
+
+    
+    <div class="sub-profile">
+        <span>
+            <mat-form-field class="input-u">
+                <mat-label>Department</mat-label>
+                <input matInput disabled="true"  class="text-co" [value]="user.departmentName">
+              </mat-form-field>
+        </span>  
+    </div>
+
+    
+
+    <div class="sub-profile">
+        <div class="profile-p">
+            <strong class="change"> Change Password </strong>
+            <span>
+                <mat-form-field class="input-up">
+                    <mat-label>Current Password</mat-label>
+                    <input matInput  type="password" class="text-co" [value]="currentp" (focusout)="checkUser($event)">
+                  </mat-form-field>
+                  <span class="error-m" *ngIf="exisit == false"> Invalid password. Please try again.
+                  </span>
+
+            </span>
+        
+            <span>
+                <mat-form-field class="input-up">
+                    <mat-label>New Password</mat-label>
+                    <input matInput  [disabled]="!exisit" type="password"  class="text-co" [value]="newp" [(ngModel)]="newp">
+                  </mat-form-field>
+            </span> 
+            <span>
+                <div class="workRecord-action ">
+                    <button mat-button (click)="changePassord()" [disabled]="!exisit"
+                        style="background-color:#497b96; color: white; border-radius: 20px;height: 40px;width: 80px;">Save
+                    </button>
+                
+                  </div>
+            </span>
+        </div>
+      <br><br>
+    </div>
+
+</div>
+</div>

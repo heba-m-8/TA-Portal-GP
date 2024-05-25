@@ -1,0 +1,23 @@
+<app-finance-nav-menu></app-finance-nav-menu>
+
+<div class="container mt-2 py-4">
+  <mat-tab-group class="tab-st" (selectedIndexChange)="tabChanged($event)">
+    <ng-container *ngFor="let tab of asyncTabs | async; trackBy: trackByFn">
+      <mat-tab>
+        <ng-template mat-tab-label>{{ tab.label }}</ng-template>
+       
+       
+      </mat-tab>
+    </ng-container>
+  </mat-tab-group>
+  
+  
+  <ng-container *ngIf="selectedTabIndex==0">
+    <app-new-work-record></app-new-work-record>
+    </ng-container>
+  
+    <ng-container *ngIf="selectedTabIndex==1">
+      <app-approved-work-record></app-approved-work-record>
+      </ng-container>
+    
+  
