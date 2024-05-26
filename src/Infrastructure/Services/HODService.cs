@@ -84,9 +84,9 @@ public class HODService : IHODService
                 ( TA.RoleId==2 
                 && (section != null ?section.InstructorId ==null: true)
                 && !_context.Section.Any
-                    (s => s.TAId == TA.Id
+                    (s => s.TAId == TA.Id           //only check time for this TA's sections
                     && s.StartTime == sectionStartTime
-                    && s.Id != sectionId)
+                    && s.Id != sectionId)   //Preven it from identifying conflict with itself
                     
                     )
                || (TA.RoleId == 1))
