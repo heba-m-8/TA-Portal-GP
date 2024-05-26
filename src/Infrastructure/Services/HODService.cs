@@ -89,7 +89,7 @@ public class HODService : IHODService
                     && s.Id != sectionId)   //Preven it from identifying conflict with itself
                     
                     )
-               || (TA.RoleId == 1))
+               || (TA.RoleId == 1 && (section != null ? section.InstructorId != null : true)))
                
                )
            .Select(TA => new TADto

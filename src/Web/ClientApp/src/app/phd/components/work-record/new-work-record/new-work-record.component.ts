@@ -42,7 +42,7 @@ export class NewWorkRecordComponent implements OnInit,AfterViewInit  {
 
 
   getWorkRecord(userId){
-    this.phdTAClient.getWorkRecord2(userId).subscribe((responce) => {
+    this.phdTAClient.getWorkRecord2(userId, false).subscribe((responce) => {
       this.WorkRecordList = responce;
       this.dataSource = new MatTableDataSource(this.WorkRecordList);
       this.dataSource.paginator = this.paginator;

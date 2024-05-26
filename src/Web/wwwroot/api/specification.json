@@ -1159,40 +1159,15 @@
               "format": "int32"
             },
             "x-position": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/WorkRecordDto"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/PhdTA/GetRejectedWorkRecords": {
-      "get": {
-        "tags": [
-          "PhdTA"
-        ],
-        "operationId": "GetRejectedWorkRecords24",
-        "parameters": [
+          },
           {
-            "name": "userId",
+            "name": "IsSubmitted",
             "in": "query",
             "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "boolean",
+              "default": false
             },
-            "x-position": 1
+            "x-position": 2
           }
         ],
         "responses": {

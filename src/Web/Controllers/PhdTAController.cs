@@ -42,20 +42,20 @@ public class PhdTAController : ControllerBase
     [HttpGet]
     [Route("GetWorkRecord")]
     [OpenApiOperation("GetWorkRecord")]
-    public async Task<List<WorkRecordDto>> GetWorkRecord([FromQuery] int userId)
+    public async Task<List<WorkRecordDto>> GetWorkRecord([FromQuery] int userId, [FromQuery] bool IsSubmitted = false)
     {
-        var workRecord = await _TAService.GetWorkRecord(userId);
+        var workRecord = await _TAService.GetWorkRecord(userId, IsSubmitted);
         return workRecord;
     }
 
-    [HttpGet]
-    [Route("GetRejectedWorkRecords")]
-    [OpenApiOperation("GetRejectedWorkRecords")]
-    public async Task<List<WorkRecordDto>> GetRejectedWorkRecords(int userId)
-    {
-        var workRecords = await _phdTAService.GetRejectedWorkRecords(userId);
-        return workRecords;
-    }
+    //[HttpGet]
+    //[Route("GetRejectedWorkRecords")]
+    //[OpenApiOperation("GetRejectedWorkRecords")]
+    //public async Task<List<WorkRecordDto>> GetRejectedWorkRecords(int userId)
+    //{
+    //    var workRecords = await _phdTAService.GetRejectedWorkRecords(userId);
+    //    return workRecords;
+    //}
 
     [HttpPost]
     [Route("SubmitWorkRecord")]

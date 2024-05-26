@@ -279,17 +279,17 @@ public class ApplicationDbContextInitialiser
               
                 // HOD
                 new Users { UserName = "Adam Smith", UserEmail = "adam.smith.1340@example.com", UserPassword = "HODPass1", UniversityId = "1340", IsActive = false, DepartmentId = 5, RoleId = 4 },
-                new Users { UserName = "Emily Johnson", UserEmail = "emily.johnson.1341@example.com", UserPassword = "HODPass2", UniversityId = "1341", IsActive = false, DepartmentId = 5, RoleId = 4 },
+                //new Users { UserName = "Emily Johnson", UserEmail = "emily.johnson.1341@example.com", UserPassword = "HODPass2", UniversityId = "1341", IsActive = false, DepartmentId = 5, RoleId = 4 },
                 new Users { UserName = "David Brown", UserEmail = "david.brown.1342@example.com", UserPassword = "HODPass3", UniversityId = "1342", IsActive = false, DepartmentId = 6, RoleId = 4 },
-                new Users { UserName = "Ava Jones", UserEmail = "ava.jones.1343@example.com", UserPassword = "HODPass4", UniversityId = "1343", IsActive = false, DepartmentId = 6, RoleId = 4 },
+                //new Users { UserName = "Ava Jones", UserEmail = "ava.jones.1343@example.com", UserPassword = "HODPass4", UniversityId = "1343", IsActive = false, DepartmentId = 6, RoleId = 4 },
                 new Users { UserName = "Joseph Taylor", UserEmail = "joseph.taylor.1344@example.com", UserPassword = "HODPass5", UniversityId = "1344", IsActive = false, DepartmentId = 7, RoleId = 4 },
-                new Users { UserName = "Charlotte Anderson", UserEmail = "charlotte.anderson.1345@example.com", UserPassword = "HODPass6", UniversityId = "1345", IsActive = false, DepartmentId = 7, RoleId = 4 },
+                //new Users { UserName = "Charlotte Anderson", UserEmail = "charlotte.anderson.1345@example.com", UserPassword = "HODPass6", UniversityId = "1345", IsActive = false, DepartmentId = 7, RoleId = 4 },
                 new Users { UserName = "Michael Thomas", UserEmail = "michael.thomas.1346@example.com", UserPassword = "HODPass7", UniversityId = "1346", IsActive = false, DepartmentId = 8, RoleId = 4 },
-                new Users { UserName = "Abigail Jackson", UserEmail = "abigail.jackson.1347@example.com", UserPassword = "HODPass8", UniversityId = "1347", IsActive = false, DepartmentId = 8, RoleId = 4 },
+                //new Users { UserName = "Abigail Jackson", UserEmail = "abigail.jackson.1347@example.com", UserPassword = "HODPass8", UniversityId = "1347", IsActive = false, DepartmentId = 8, RoleId = 4 },
                 new Users { UserName = "James White", UserEmail = "james.white.1348@example.com", UserPassword = "HODPass9", UniversityId = "1348", IsActive = false, DepartmentId = 9, RoleId = 4 },
-                new Users { UserName = "Sophia Harris", UserEmail = "sophia.harris.1349@example.com", UserPassword = "HODPass10", UniversityId = "1349", IsActive = false, DepartmentId = 9, RoleId = 4 },
+                //new Users { UserName = "Sophia Harris", UserEmail = "sophia.harris.1349@example.com", UserPassword = "HODPass10", UniversityId = "1349", IsActive = false, DepartmentId = 9, RoleId = 4 },
                 new Users { UserName = "Matthew Martin", UserEmail = "matthew.martin.1350@example.com", UserPassword = "HODPass11", UniversityId = "1350", IsActive = false, DepartmentId = 10, RoleId = 4 },
-                new Users { UserName = "Grace Thompson", UserEmail = "grace.thompson.1351@example.com", UserPassword = "HODPass12", UniversityId = "1351", IsActive = false, DepartmentId = 10, RoleId = 4 },
+                //new Users { UserName = "Grace Thompson", UserEmail = "grace.thompson.1351@example.com", UserPassword = "HODPass12", UniversityId = "1351", IsActive = false, DepartmentId = 10, RoleId = 4 },
 
                 // Dean
                 new Users { UserName = "Daniel Williams", UserEmail = "daniel.williams.1550@example.com", UserPassword = "DeanPass1", UniversityId = "1550", IsActive = false, DepartmentId = 5, RoleId = 5 },

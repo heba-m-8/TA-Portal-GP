@@ -170,43 +170,6 @@ public class InstructorService : IInstructorService
             return new List<WorkRecordDto>();
         }
 
-        //var workRecordsList = await _context.WorkRecord
-        //    .Where(w => w.AssignedTA.DepartmentId == user.DepartmentId
-        //            && w.IsApprovedByInstructor == true
-        //            && w.IsApprovedByHod == false)
-        //    .Select(workRecordDto => new WorkRecordDto
-        //    {
-        //        Id = workRecordDto.Id,
-        //        TotalHours = workRecordDto.TotalHours,
-        //        AssignedTA = new TADto
-        //        {
-        //            Id = workRecordDto.AssignedTAId,
-        //            UserName = workRecordDto.AssignedTA.UserName,
-        //            UserEmail = workRecordDto.AssignedTA.UserEmail,
-        //            UniversityId = workRecordDto.AssignedTA.UniversityId,
-        //            GPA = workRecordDto.AssignedTA.GPA,
-        //            DepName = workRecordDto.AssignedTA.Department.Name,
-        //            School = workRecordDto.AssignedTA.Department.School.Name
-        //        },
-        //        StartDate = workRecordDto.StartDate,
-        //        EndDate = workRecordDto.EndDate,
-        //        WorkRecordDate = workRecordDto.WorkRecordDate,
-        //        Tasks = workRecordDto.Tasks.Select(task => new TaskDto
-        //        {
-        //            SectionId = task.SectionId,
-        //            Id = task.Id,
-        //            AssignedTAId = task.AssignedTAId,
-        //            Description = task.Description,
-        //            CourseRef = task.Section.Course.CourseRef,
-        //            Assigner = task.Section.Instructor.UserName,
-        //            Status = task.IsCompleted,
-        //            TotalHours = task.TaskHours,
-        //            SectionName = task.Section.Name,
-        //            InsructorName = task.Section.Instructor.UserName
-        //        }).ToList(),
-        //    })
-        //    .ToListAsync();
-
         // get all the instructor's associated work records IDs
         var workRecordsIdList = await _context.WorkRecordInstructorApprover
             .Where(workRecord => workRecord.InstructorId == userId)

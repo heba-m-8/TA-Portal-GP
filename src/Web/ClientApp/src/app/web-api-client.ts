@@ -1936,8 +1936,7 @@ export class InstructorClient implements IInstructorClient {
 export interface IPhdTAClient {
     createTask(phdTaskDto: PhdTaskDto): Observable<FileResponse>;
     getPhdTASections(userId: number | undefined): Observable<SectionDto[]>;
-    getWorkRecord2(userId: number | undefined): Observable<WorkRecordDto[]>;
-    getRejectedWorkRecords24(userId: number | undefined): Observable<WorkRecordDto[]>;
+    getWorkRecord2(userId: number | undefined, isSubmitted: boolean | undefined): Observable<WorkRecordDto[]>;
     submitWorkRecord(updateWorkRecordDto: UpdateWorkRecordDto): Observable<FileResponse>;
     reSubmitWorkRecord(updateWorkRecordDto: UpdateWorkRecordDto): Observable<FileResponse>;
 }
@@ -2070,12 +2069,16 @@ export class PhdTAClient implements IPhdTAClient {
         return _observableOf(null as any);
     }
 
-    getWorkRecord2(userId: number | undefined): Observable<WorkRecordDto[]> {
+    getWorkRecord2(userId: number | undefined, isSubmitted: boolean | undefined): Observable<WorkRecordDto[]> {
         let url_ = this.baseUrl + "/api/PhdTA/GetWorkRecord?";
         if (userId === null)
             throw new Error("The parameter 'userId' cannot be null.");
         else if (userId !== undefined)
             url_ += "userId=" + encodeURIComponent("" + userId) + "&";
+        if (isSubmitted === null)
+            throw new Error("The parameter 'isSubmitted' cannot be null.");
+        else if (isSubmitted !== undefined)
+            url_ += "IsSubmitted=" + encodeURIComponent("" + isSubmitted) + "&";
         url_ = url_.replace(/[?&]$/, "");
 
         let options_ : any = {
@@ -2101,65 +2104,6 @@ export class PhdTAClient implements IPhdTAClient {
     }
 
     protected processGetWorkRecord2(response: HttpResponseBase): Observable<WorkRecordDto[]> {
-        const status = response.status;
-        const responseBlob =
-            response instanceof HttpResponse ? response.body :
-            (response as any).error instanceof Blob ? (response as any).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
-        if (status === 200) {
-            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            if (Array.isArray(resultData200)) {
-                result200 = [] as any;
-                for (let item of resultData200)
-                    result200!.push(WorkRecordDto.fromJS(item));
-            }
-            else {
-                result200 = <any>null;
-            }
-            return _observableOf(result200);
-            }));
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            }));
-        }
-        return _observableOf(null as any);
-    }
-
-    getRejectedWorkRecords24(userId: number | undefined): Observable<WorkRecordDto[]> {
-        let url_ = this.baseUrl + "/api/PhdTA/GetRejectedWorkRecords?";
-        if (userId === null)
-            throw new Error("The parameter 'userId' cannot be null.");
-        else if (userId !== undefined)
-            url_ += "userId=" + encodeURIComponent("" + userId) + "&";
-        url_ = url_.replace(/[?&]$/, "");
-
-        let options_ : any = {
-            observe: "response",
-            responseType: "blob",
-            headers: new HttpHeaders({
-                "Accept": "application/json"
-            })
-        };
-
-        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
-            return this.processGetRejectedWorkRecords24(response_);
-        })).pipe(_observableCatch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processGetRejectedWorkRecords24(response_ as any);
-                } catch (e) {
-                    return _observableThrow(e) as any as Observable<WorkRecordDto[]>;
-                }
-            } else
-                return _observableThrow(response_) as any as Observable<WorkRecordDto[]>;
-        }));
-    }
-
-    protected processGetRejectedWorkRecords24(response: HttpResponseBase): Observable<WorkRecordDto[]> {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :

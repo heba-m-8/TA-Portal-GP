@@ -195,8 +195,6 @@ public class TAService : ITAService
          sections = sections.DistinctBy(x => x.InstructorId).ToList();
 
 
-
-
         // add records to WorkRecordInstructorApprover for each instructor 
         foreach (var section in sections)
         {
